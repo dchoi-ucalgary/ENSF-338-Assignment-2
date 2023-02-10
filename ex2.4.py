@@ -1,26 +1,16 @@
 import sys
+import math
+
 sys.setrecursionlimit(20000)
 def func1(arr, low, high):
-    # to make it more efficient, we can 
-    # check if the list is already sorted, 
-    # This will not increase complexity, since 
-    # O(n*logn) is greater than O(n).
-    # This will also cause our 
-    # best case scenario (already sorted)
-    # to be O(n), which is better
 
     if low < high:
-        sorted = 0
-        if(all(arr[i] <= arr[i + 1] for i in range(len(arr)-1))):
-            sorted = True
-
-        if(sorted == False):
-            pi = func2(arr, low, high)
-            func1(arr, low, pi-1)
-            func1(arr, pi + 1, high)
+        pi = func2(arr, low, high)
+        func1(arr, low, pi-1)
+        func1(arr, pi + 1, high)
 
 def func2(array, start, end):
-    p = array[start]
+    p = array[math.floor((start + end)/2)]
     low = start + 1
     high = end
     while True:
