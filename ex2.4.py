@@ -81,6 +81,3 @@ plt.legend()
 plt.xlabel("n")
 plt.ylabel("Time")
 plt.show()
-
-
-# something
