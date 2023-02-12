@@ -61,13 +61,13 @@ old_list = []
 for i in range(0, 10):
     low = 0
     high = len(content[i]) - 1
-    elapsed_time = timeit.timeit(lambda: func1(content[i], low, high), number=1)
+    elapsed_time = timeit.timeit(lambda: func1(content[i], low, high), number=5)
     new_list.append(elapsed_time)
 
 for i in range(0, 10):
     low = 0
     high = len(content[i]) - 1
-    elapsed_time = timeit.timeit(lambda: func1_old(content[i], low, high), number=1)
+    elapsed_time = timeit.timeit(lambda: func1_old(content[i], low, high), number=5)
     old_list.append(elapsed_time)
 
 n_list = []
@@ -78,6 +78,8 @@ for i in range(0,10):
 plt.plot(n_list, old_list , 'r' , label='Old Program')
 plt.plot(n_list, new_list, 'g', label='New Program')
 plt.legend()
-plt.xlabel("n")
+plt.xlabel("Array Index")
 plt.ylabel("Time")
 plt.show()
+
+
