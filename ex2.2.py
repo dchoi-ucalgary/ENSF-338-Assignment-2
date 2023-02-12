@@ -1,6 +1,7 @@
 import sys
 import json
 import timeit
+import matplotlib.pyplot as plt
 
 sys.setrecursionlimit(20000)
 def func1(arr, low, high):
@@ -33,13 +34,18 @@ time_list = []
 for i in range(0, 10):
     low = 0
     high = len(content[i]) - 1
-    elapsed_time = timeit.timeit(lambda: func1(content[i], low, high), number=1)
+    elapsed_time = timeit.timeit(lambda: func1(content[i], low, high), number=5)
     time_list.append(elapsed_time)
 
-print(time_list)
+n_list = []
 
+for i in range(0,10):
+    n_list.append(i)
 
-#something
+plt.plot(n_list, time_list)
+plt.xlabel("Array Index")
+plt.ylabel("Time")
+plt.show()
 
 
 
